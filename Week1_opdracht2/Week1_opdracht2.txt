@@ -1,0 +1,1 @@
+./Debug/main.cpp.o ./Debug/circle.cpp.o ./Debug/line.cpp.o ./Debug/rectangle.cpp.o ./Debug/rectangle_full.cpp.o ./Debug/window.cpp.o ./Debug/train_head.cpp.o ./Debug/wagon.cpp.o   
