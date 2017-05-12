@@ -35,6 +35,8 @@
     <File Name="train_head.hpp"/>
     <File Name="wagon.cpp"/>
     <File Name="wagon.hpp"/>
+    <File Name="train.hpp"/>
+    <File Name="train.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

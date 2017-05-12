@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=maaistro
-Date                   :=30/04/2017
+Date                   :=12/05/2017
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/circle.cpp$(ObjectSuffix) $(IntermediateDirectory)/line.cpp$(ObjectSuffix) $(IntermediateDirectory)/rectangle.cpp$(ObjectSuffix) $(IntermediateDirectory)/rectangle_full.cpp$(ObjectSuffix) $(IntermediateDirectory)/window.cpp$(ObjectSuffix) $(IntermediateDirectory)/train_head.cpp$(ObjectSuffix) $(IntermediateDirectory)/wagon.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/circle.cpp$(ObjectSuffix) $(IntermediateDirectory)/line.cpp$(ObjectSuffix) $(IntermediateDirectory)/rectangle.cpp$(ObjectSuffix) $(IntermediateDirectory)/rectangle_full.cpp$(ObjectSuffix) $(IntermediateDirectory)/window.cpp$(ObjectSuffix) $(IntermediateDirectory)/train_head.cpp$(ObjectSuffix) $(IntermediateDirectory)/wagon.cpp$(ObjectSuffix) $(IntermediateDirectory)/train.cpp$(ObjectSuffix) 
 
 
 
@@ -156,6 +156,14 @@ $(IntermediateDirectory)/wagon.cpp$(DependSuffix): wagon.cpp
 
 $(IntermediateDirectory)/wagon.cpp$(PreprocessSuffix): wagon.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wagon.cpp$(PreprocessSuffix) wagon.cpp
+
+$(IntermediateDirectory)/train.cpp$(ObjectSuffix): train.cpp $(IntermediateDirectory)/train.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/ti-software/v1oopc-practica/Week1_opdracht2/train.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/train.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/train.cpp$(DependSuffix): train.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/train.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/train.cpp$(DependSuffix) -MM train.cpp
+
+$(IntermediateDirectory)/train.cpp$(PreprocessSuffix): train.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/train.cpp$(PreprocessSuffix) train.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

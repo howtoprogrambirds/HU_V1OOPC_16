@@ -24,7 +24,7 @@ class train_head {
     rectangle_full quard;
     circle firstH, secondH, thirdH, bigH, firstC, secondC;
     public:
-    train_head( window & w);
+    train_head( window & w, int start_x, int start_y);
     void print();
 };
 
