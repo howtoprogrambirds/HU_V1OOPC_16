@@ -20,14 +20,14 @@ private:
    void reduce(){
       int a = counter;
       int b = denominator;
-
+    
       while( b ){
          int temp = b;
          b = a % b;
          a = temp;
       }
 
-      if( a ){
+      if( a % a == 0){
          counter /= a;
          denominator /= a;
       }
@@ -52,7 +52,7 @@ public:
    /// if and only if the counter and denminator of both
    /// operands are equal.
    bool operator==( const rational & rhs ) const {
-      return ( counter == rhs.counter ) || ( denominator == rhs.denominator );
+      return ( counter % rhs.counter == 0) && ( denominator % rhs.denominator == 0);
    }
 
    /// \brief
@@ -67,7 +67,7 @@ public:
          << rhs.counter 
          << "/" 
          << rhs.denominator
-         << "}";
+         << "]";
    }   
    
    /// \brief   
@@ -84,8 +84,8 @@ public:
    /// This operator* multiplies a rational value by a rational value.
    rational operator*( const rational & rhs ) const {
       return rational( 
-         denominator * rhs.denominator,
-         counter * rhs.counter
+         counter * rhs.counter,
+         denominator * rhs.denominator
       );
    }
    
@@ -104,10 +104,10 @@ public:
    /// \details
    /// This operator*= multiply a rational value a ratianal variable.
    rational operator*=( const rational & rhs ){
-      counter = counter + rhs.counter;
-      denominator += rhs.denominator;
+      counter *= rhs.counter;
+      denominator *= rhs.denominator;
       reduce();
-      return rhs;
+      return *this;
    }
    
 };
